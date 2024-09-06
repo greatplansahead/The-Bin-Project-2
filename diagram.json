@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "The Bin - Hack Club",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-pi-pico-w", "id": "pico", "top": -41.65, "left": -15.65, "attrs": {} },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "wokwi-ntc-temperature-sensor-0",
+      "top": 31.4,
+      "left": 105,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "wokwi-neopixel-0",
+      "top": 188.5,
+      "left": 56.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-max7219-matrix",
+      "id": "wokwi-max7219-matrix-0",
+      "top": 0.6,
+      "left": -178.59,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "wokwi-ntc-temperature-sensor-0:VCC", "pico:3V3_EN", "red", [ "h48", "v-76.8", "h-9.6" ] ],
+    [ "wokwi-ntc-temperature-sensor-0:GND", "pico:GND.5", "black", [ "h19.2", "v144" ] ],
+    [
+      "wokwi-ntc-temperature-sensor-0:OUT",
+      "pico:GP26",
+      "green",
+      [ "h9.6", "v47.9", "h-172.8", "v-28.8" ]
+    ],
+    [ "wokwi-max7219-matrix-0:GND", "pico:GND.5", "black", [ "h19.2", "v96" ] ],
+    [ "wokwi-max7219-matrix-0:V+", "pico:3V3_EN", "red", [ "h19.2", "v-19.2" ] ],
+    [ "wokwi-max7219-matrix-0:DIN", "pico:GP3", "violet", [ "h28.8", "v-28.8" ] ],
+    [ "wokwi-max7219-matrix-0:CS", "pico:GP4", "violet", [ "h38.4", "v-28.8" ] ],
+    [ "wokwi-max7219-matrix-0:CLK", "pico:GP2", "violet", [ "h38.4", "v-57.6" ] ],
+    [ "wokwi-neopixel-0:DIN", "pico:GP7", "green", [ "h-116", "v-96" ] ]
+  ],
+  "dependencies": {}
+}
